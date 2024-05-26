@@ -1,0 +1,12 @@
+{
+    "name": "devbastic/app-server",
+    "description": "-",
+    "type": "project",
+    "authors": [
+        {
+            "name": "devbastic",
+            "email": "devbastic@gmail.com"
+        }
+    ],
+    "require": {}
+}
