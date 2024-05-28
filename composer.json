@@ -8,5 +8,7 @@
             "email": "devbastic@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "eltaline/connection-pool": "~1.0"
+    }
 }

@@ -12,7 +12,7 @@ function pretty ($var) {
 }
 
 
-$server = new OpenSwoole\HTTP\Server("127.0.0.1", 9502);
+$server = new OpenSwoole\HTTP\Server("127.0.0.1", 9503);
 
 $server->set([
     'worker_num' => 4,      // The number of worker processes to start
@@ -20,14 +20,12 @@ $server->set([
     'backlog' => 128       // TCP backlog connection number
 ]);
 
-//	OpenSwoole\Server->on('Task', Callable $callback)
-
 
 // Triggered when new worker processes starts
 
 $server->on("WorkerStart", function($server, $id)
 {
-    echo '[worker id=' . $id . ' starting]' . PHP_EOL;
+    echo '[worker started, id=' . $id . ' starting]' . PHP_EOL;
 });
 
 
@@ -37,6 +35,7 @@ $server->on("start", function($server)
 {
     echo "[http server starting]" . PHP_EOL;
 });
+
 
 $server->on("Task", function($server, $id)
 {
@@ -48,9 +47,10 @@ $server->on("Task", function($server, $id)
 // The main HTTP server request callback event, entry point for all incoming HTTP requests
 $server->on('request', function(OpenSwoole\Http\Request $request, OpenSwoole\Http\Response $response)
 {
-    echo "[request]" . PHP_EOL;
+    //echo "[request]" . PHP_EOL;
+	echo '.';
 
-	echo pretty($request);
+	//echo pretty($request);
 
     $response->end('<h1>Hello World!</h1>');
 });
