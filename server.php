@@ -11,7 +11,6 @@ function pretty ($var) {
   );                               // Constants: https://www.php.net/manual/en/json.constants.php
 }
 
-
 $server = new OpenSwoole\HTTP\Server("127.0.0.1", 9503);
 
 $server->set([
